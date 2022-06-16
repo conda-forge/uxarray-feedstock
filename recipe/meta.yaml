@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: 6c43474b0189470ea58f8c60f8e81f6723471087637d7f46ec6ffc431134d5eb
+  sha256: e4afaf5a1383c1a3be00fd4870877a1b1b6e4f893823318146a60138cbc38b38
 
 build:
   number: 0
@@ -26,6 +26,8 @@ test:
   source_files:
     - test
   requires:
+    - dask
+    - netcdf4
     - pytest
   imports:
     - uxarray
