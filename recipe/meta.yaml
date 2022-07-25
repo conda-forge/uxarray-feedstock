@@ -28,6 +28,7 @@ test:
   requires:
     - dask
     - netcdf4
+    - numba
     - pytest
   imports:
     - uxarray
