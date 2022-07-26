@@ -21,7 +21,7 @@ requirements:
   run:
     - python >=3.6
     - numba
-    - numpy>=1.2, <1.22
+    - numpy >=1.2, <1.22
     - xarray
 
 test:
