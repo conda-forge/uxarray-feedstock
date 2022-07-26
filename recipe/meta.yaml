@@ -20,6 +20,8 @@ requirements:
     - setuptools
   run:
     - python >=3.6
+    - numba
+    - numpy>=1.2, <1.22
     - xarray
 
 test:
@@ -28,8 +30,6 @@ test:
   requires:
     - dask
     - netcdf4
-    - numba
-    - numpy>=1.2, <1.22
     - pytest
   imports:
     - uxarray
