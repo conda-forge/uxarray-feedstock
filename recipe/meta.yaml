@@ -18,6 +18,8 @@ requirements:
     - python >=3.6
     - pip
     - setuptools
+    - numba
+    - numpy >=1.2, <1.22
   run:
     - python >=3.6
     - numba
