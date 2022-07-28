@@ -18,12 +18,8 @@ requirements:
     - python >=3.6
     - pip
     - setuptools
-    - numba
-    - numpy >=1.2, <1.22
   run:
     - python >=3.6
-    - numba
-    - numpy >=1.2, <1.22
     - xarray
 
 test:
@@ -33,10 +29,16 @@ test:
     - dask
     - netcdf4
     - pytest
+    - numba
+    - numpy >=1.2, <1.22
+    - scipy >=0.16
+    - xarray
   imports:
     - uxarray
   commands:
-    - pytest test
+    - conda info
+    - conda list
+    - python -m pytest
 
 about:
   home: https://github.com/UXARRAY/uxarray
