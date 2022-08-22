@@ -9,6 +9,13 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/uxarray-feedsto
 
 Summary: Uxarray is a library of xarray based functions for visualizing unstructured grid datasets
 
+Uxarray aims to address the geoscience community need for tools that enable standard data analysis techniques to operate directly on unstructured grid data.
+Uxarray will provide Xarray styled functions to better read in and use unstructured grid datasets that follow standard conventions, including UGRID, SCRIP,
+Exodus and shapefile formats. This effort is a result of the collaboration between Project Raijin
+(NCAR and Pennsylvania State University) and the SEATS Project (Argonne National Laboratory, UC Davis, and Lawrence Livermore National Laboratory).
+The Uxarray team welcomes other community members to become part of this collaboration at any level of contribution.
+
+
 Current build status
 ====================
 
