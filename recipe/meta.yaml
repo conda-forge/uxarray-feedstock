@@ -1,4 +1,4 @@
-{% set version = "2022.07.0" %}
+{% set version = "2022.08.0" %}
 
 package:
   name: uxarray
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: a889a376a3785f853a588c418f2c5378e081a134e13a358c84cb11551ccab3f0
+  sha256: 86dbd54f207feacfe941e60ff152bf9391cd756ed117ddc9fff8f9dc6e59e463
 
 build:
-  number: 1
+  number: 0
 
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
