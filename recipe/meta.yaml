@@ -20,11 +20,12 @@ requirements:
     - pip
     - setuptools
   run:
+    - python >=3.6
     - dask
     - netcdf4
     - numba
-    - numpy>=1.2, <1.22
-    - scipy>=0.16 
+    - numpy >=1.2, <1.22
+    - scipy >=0.16 
     - xarray
 
 test:
@@ -32,6 +33,7 @@ test:
     - test
   requires:
     - pytest
+    - pip
   imports:
     - uxarray
   commands:
