@@ -21,22 +21,23 @@ requirements:
     - setuptools
   run:
     - python >=3.6
+    - dask
+    - netcdf4
+    - numba
+    - numpy >=1.2, <1.22
+    - scipy >=0.16 
     - xarray
 
 test:
   source_files:
     - test
   requires:
-    - dask
-    - netcdf4
     - pytest
-    - numba
-    - numpy >=1.2, <1.22
-    - scipy >=0.16
-    - xarray
+    - pip
   imports:
     - uxarray
   commands:
+    - pip check
     - conda info
     - conda list
     - python -m pytest
