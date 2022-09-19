@@ -29,18 +29,10 @@ requirements:
     - xarray
 
 test:
-  source_files:
-    - test
   requires:
     - pytest
-    - pip
   imports:
     - uxarray
-  commands:
-    - pip check
-    - conda info
-    - conda list
-    - python -m pytest
 
 about:
   home: https://github.com/UXARRAY/uxarray
