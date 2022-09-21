@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: 1fd2fd7293af950ba24dd9cc7809ee98444e2645f59d60ea6b55224c74c547e5
+  sha256: c79b1aab425a45d418e5a5be8cfb28debf5b44106975c23f922a76e12e49cee9
 
 build:
   number: 0
