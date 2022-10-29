@@ -24,7 +24,7 @@ requirements:
     - dask
     - netcdf4
     - numba
-    - numpy >=1.2, <1.22
+    - numpy
     - scipy >=0.16
     - xarray
 
