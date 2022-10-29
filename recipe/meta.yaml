@@ -1,4 +1,4 @@
-{% set version = "2022.09.0" %}
+{% set version = "2022.10.0" %}
 
 package:
   name: uxarray
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: c79b1aab425a45d418e5a5be8cfb28debf5b44106975c23f922a76e12e49cee9
+  sha256: a66e6bff4cf23e12c792e6da7e367b40dc3cdfaa43037b89fae933b94121a205
 
 build:
   number: 0
 
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
@@ -24,8 +24,8 @@ requirements:
     - dask
     - netcdf4
     - numba
-    - numpy >=1.2, <1.22
-    - scipy >=0.16 
+    - numpy
+    - scipy >=0.16
     - xarray
 
 test:
@@ -42,10 +42,10 @@ about:
     Exodus and shapefile formats. This effort is a result of the collaboration between Project Raijin 
     (NCAR and Pennsylvania State University) and the SEATS Project (Argonne National Laboratory, UC Davis, and Lawrence Livermore National Laboratory). 
     The Uxarray team welcomes other community members to become part of this collaboration at any level of contribution.
-    
+
   license: Apache-2.0
   license_file: LICENSE
-  summary: 'Uxarray is a library of xarray based functions for visualizing unstructured grid datasets'
+  summary: Uxarray is a library of xarray based functions for visualizing unstructured grid datasets
 
 extra:
   recipe-maintainers:
