@@ -1,11 +1,11 @@
-About uxarray
-=============
+About uxarray-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/uxarray-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/UXARRAY/uxarray
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/uxarray-feedstock/blob/main/LICENSE.txt)
 
 Summary: Uxarray is a library of xarray based functions for visualizing unstructured grid datasets
 
