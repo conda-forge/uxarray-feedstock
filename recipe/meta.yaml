@@ -1,4 +1,4 @@
-{% set version = "2023.05.0" %}
+{% set version = "2023.05.0dev" %}
 
 package:
   name: uxarray
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: 3de2234745acae0687370bbbb6d3d06624cfa5ac374ee29ccb83da1dcec51108
+  sha256: f0a8f649520466fac56267180e41e45dadfb08faec8063fed4b3a4319a9c2cb8
 
 build:
   number: 0
@@ -16,11 +16,11 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.9
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python >=3.9
     - dask
     - netcdf4
     - numba
