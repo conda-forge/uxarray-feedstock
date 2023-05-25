@@ -9,18 +9,18 @@ source:
   sha256: f86dfbfd0903a9de3177e0d254acaa1239b86c1a25ad74f48a71100afd692c60
 
 build:
-  number: 0
+  number: 1
 
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.9
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python >=3.9
     - dask
     - netcdf4
     - numba
