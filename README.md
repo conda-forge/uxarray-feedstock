@@ -156,6 +156,3 @@ Feedstock Maintainers
 * [@paullric](https://github.com/paullric/)
 * [@rajeeja](https://github.com/rajeeja/)
 
-
-<!-- dummy commit to enable rerendering -->
-
