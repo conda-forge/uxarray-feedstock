@@ -155,4 +155,5 @@ Feedstock Maintainers
 * [@erogluorhan](https://github.com/erogluorhan/)
 * [@paullric](https://github.com/paullric/)
 * [@rajeeja](https://github.com/rajeeja/)
+* [@philipc2](https://github.com/philipc2)
 
