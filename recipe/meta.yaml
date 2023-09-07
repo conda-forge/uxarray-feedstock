@@ -25,6 +25,7 @@ requirements:
     - netcdf4
     - numba
     - numpy
+    - scikit-learn
     - scipy >=0.16
     - xarray
 
