@@ -154,6 +154,6 @@ Feedstock Maintainers
 * [@chengzhuzhang](https://github.com/chengzhuzhang/)
 * [@erogluorhan](https://github.com/erogluorhan/)
 * [@paullric](https://github.com/paullric/)
+* [@philipc2](https://github.com/philipc2/)
 * [@rajeeja](https://github.com/rajeeja/)
-* [@philipc2](https://github.com/philipc2)
 
