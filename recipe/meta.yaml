@@ -22,7 +22,7 @@ requirements:
   run:
     - python >=3.9
     - dask
-    - matplotlib
+    - matplotlib-base
     - netcdf4
     - numba
     - numpy
