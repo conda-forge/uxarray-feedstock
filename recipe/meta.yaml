@@ -23,6 +23,7 @@ requirements:
     - python >=3.9
     - cartopy
     - dask
+    - datashader
     - holoviews
     - matplotlib-base
     - netcdf4
