@@ -21,11 +21,14 @@ requirements:
     - setuptools
   run:
     - python >=3.9
+    - cartopy
     - dask
+    - holoviews
     - matplotlib-base
     - netcdf4
     - numba
     - numpy
+    - pandas
     - scikit-learn
     - scipy >=0.16
     - xarray
