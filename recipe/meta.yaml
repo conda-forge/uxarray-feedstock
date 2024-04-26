@@ -20,18 +20,23 @@ requirements:
     - pip
     - setuptools
   run:
-    - python >=3.9
+    - antimeridian
     - cartopy
     - dask
     - datashader
+    - geoviews
     - holoviews
     - matplotlib-base
+    - matplotlib-inline
     - netcdf4
     - numba
     - numpy
     - pandas
+    - python >=3.9
     - scikit-learn
     - scipy >=0.16
+    - shapely
+    - spatialpandas
     - xarray
 
 test:
@@ -51,7 +56,7 @@ about:
 
   license: Apache-2.0
   license_file: LICENSE
-  summary: Uxarray is a library of xarray based functions for visualizing unstructured grid datasets
+  summary: Xarray-styled package for reading and directly operating on unstructured grid datasets following UGRID conventions
 
 extra:
   recipe-maintainers:
