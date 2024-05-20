@@ -7,7 +7,7 @@ Home: https://github.com/UXARRAY/uxarray
 
 Package license: Apache-2.0
 
-Summary: Uxarray is a library of xarray based functions for visualizing unstructured grid datasets
+Summary: Xarray-styled package for reading and directly operating on unstructured grid datasets following UGRID conventions
 
 Uxarray aims to address the geoscience community need for tools that enable standard data analysis techniques to operate directly on unstructured grid data.
 Uxarray will provide Xarray styled functions to better read in and use unstructured grid datasets that follow standard conventions, including UGRID, SCRIP,
