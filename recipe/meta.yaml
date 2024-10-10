@@ -29,6 +29,7 @@ requirements:
     - datashader
     - geoviews
     - holoviews
+    - hvplot
     - matplotlib-base
     - matplotlib-inline
     - netcdf4
