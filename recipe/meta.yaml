@@ -42,6 +42,7 @@ requirements:
     - shapely
     - spatialpandas
     - xarray
+    - polars
 
 test:
   requires:
