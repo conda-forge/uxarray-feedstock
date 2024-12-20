@@ -1,5 +1,5 @@
 {% set name = "uxarray" %}
-{% set version = "2024.11.1" %}
+{% set version = "2024.12.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: c71ab33e6eb88909f825fee5a8c696aea19462c700b74ca69159507a5ad0e22b
+  sha256: c98d082d0b03844c79e32cdeb88914bea89e5caaee609101f5c133510e5987e5
 
 build:
   number: 0
@@ -42,6 +42,7 @@ requirements:
     - shapely
     - spatialpandas
     - xarray
+    - polars
 
 test:
   requires:
