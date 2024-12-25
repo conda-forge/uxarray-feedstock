@@ -11,14 +11,14 @@ source:
   sha256: c98d082d0b03844c79e32cdeb88914bea89e5caaee609101f5c133510e5987e5
 
 build:
-  number: 0
+  number: 1
 
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools-scm
@@ -36,7 +36,7 @@ requirements:
     - numba
     - numpy
     - pandas
-    - python >=3.9
+    - python >={{ python_min }}
     - scikit-learn
     - scipy >=0.16
     - shapely
@@ -47,6 +47,7 @@ requirements:
 test:
   requires:
     - pytest
+    - python {{ python_min }}
   imports:
     - uxarray
 
