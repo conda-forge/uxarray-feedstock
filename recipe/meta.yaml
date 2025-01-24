@@ -25,7 +25,7 @@ requirements:
   run:
     - antimeridian
     - cartopy
-    - dask
+    - dask <2025.1.0
     - datashader
     - geoviews
     - holoviews
