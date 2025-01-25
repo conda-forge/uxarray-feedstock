@@ -1,5 +1,7 @@
 {% set name = "uxarray" %}
 {% set version = "2025.01.0" %}
+{% set python_min = "3.10" %}
+
 
 
 package:
@@ -11,14 +13,14 @@ source:
   sha256: 5bb5a06d1d29584a9838598af921c30bee6c44c559ab7f0b115e2c961851890e
 
 build:
-  number: 0
+  number: 1
 
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
     - setuptools
     - setuptools-scm
@@ -36,7 +38,7 @@ requirements:
     - numba
     - numpy
     - pandas
-    - python >=3.9
+    - python >={{ python_min }}
     - scikit-learn
     - scipy >=0.16
     - shapely
@@ -47,6 +49,7 @@ requirements:
 test:
   requires:
     - pytest
+    - python {{ python_min }}
   imports:
     - uxarray
 
