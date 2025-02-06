@@ -156,4 +156,5 @@ Feedstock Maintainers
 * [@paullric](https://github.com/paullric/)
 * [@philipc2](https://github.com/philipc2/)
 * [@rajeeja](https://github.com/rajeeja/)
+* [@xylar](https://github.com/xylar/)
 
