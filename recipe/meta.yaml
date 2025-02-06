@@ -36,7 +36,7 @@ requirements:
     - matplotlib-inline
     - netcdf4
     - numba
-    - numpy
+    - numpy <2.1
     - pandas
     - python >={{ python_min }}
     - scikit-learn
