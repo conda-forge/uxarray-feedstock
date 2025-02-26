@@ -27,7 +27,7 @@ requirements:
   run:
     - antimeridian
     - cartopy
-    - dask <2025.1.0
+    - dask 
     - datashader
     - geoviews
     - holoviews
@@ -36,7 +36,7 @@ requirements:
     - matplotlib-inline
     - netcdf4
     - numba
-    - numpy <2.1
+    - numpy 
     - pandas
     - python >={{ python_min }}
     - scikit-learn
