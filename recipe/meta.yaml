@@ -1,5 +1,5 @@
 {% set name = "uxarray" %}
-{% set version = "2025.02.0" %}
+{% set version = "2025.02.1" %}
 {% set python_min = "3.10" %}
 
 
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: a4ad8b129f4e40417efa85daa01f82851fb9ed7af6e914a46c25651dad84e897
+  sha256: 73211256cb5987d6074977324517ca9dc09c7fce237ae5b2c121f379b22b74c6
 
 build:
   number: 0
