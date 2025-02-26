@@ -30,6 +30,7 @@ requirements:
     - dask 
     - datashader
     - geoviews
+    - healpix
     - holoviews
     - hvplot
     - matplotlib-base
