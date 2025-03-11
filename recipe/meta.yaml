@@ -1,5 +1,5 @@
 {% set name = "uxarray" %}
-{% set version = "2025.02.1" %}
+{% set version = "2025.03.0" %}
 {% set python_min = "3.10" %}
 
 
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
-  sha256: 73211256cb5987d6074977324517ca9dc09c7fce237ae5b2c121f379b22b74c6
+  sha256: f35310e064fc087677cfbe02290ff56a704f7ebde6422eb618634883521ac5c3
 
 build:
   number: 0
@@ -27,7 +27,7 @@ requirements:
   run:
     - antimeridian
     - cartopy
-    - dask 
+    - dask
     - datashader
     - geoviews
     - healpix
@@ -37,7 +37,7 @@ requirements:
     - matplotlib-inline
     - netcdf4
     - numba
-    - numpy 
+    - numpy
     - pandas
     - python >={{ python_min }}
     - scikit-learn
