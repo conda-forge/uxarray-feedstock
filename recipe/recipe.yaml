@@ -1,26 +1,26 @@
-{% set name = "uxarray" %}
-{% set version = "2026.02.0" %}
-{% set python_min = "3.10" %}
+schema_version: 1
 
-
+context:
+  name: uxarray
+  version: "2026.02.0"
+  python_min: "3.10"
 
 package:
   name: uxarray
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
+  url: https://github.com/UXARRAY/uxarray/archive/v${{ version }}.tar.gz
   sha256: c2cc466454ae98b3a0b9cbf0f6a3ccebc32175056f42119994f4279200d311ea
 
 build:
-  number: 0
-
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
   noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python 3.10.*
     - pip
     - setuptools
     - setuptools-scm
@@ -39,7 +39,7 @@ requirements:
     - numba
     - numpy <2.3
     - pandas
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - scikit-learn
     - scipy >=0.16
     - shapely
@@ -47,15 +47,13 @@ requirements:
     - xarray
     - polars
 
-test:
-  requires:
-    - pytest
-    - python {{ python_min }}
-  imports:
-    - uxarray
-
+tests:
+  - python:
+      imports:
+        - uxarray
+      pip_check: false
+      python_version: ${{ python_min }}
 about:
-  home: https://github.com/UXARRAY/uxarray
   description: |
     Uxarray aims to address the geoscience community need for tools that enable standard data analysis techniques to operate directly on unstructured grid data.
     Uxarray will provide Xarray styled functions to better read in and use unstructured grid datasets that follow standard conventions, including UGRID, SCRIP,
@@ -66,6 +64,7 @@ about:
   license: Apache-2.0
   license_file: LICENSE
   summary: Xarray extension for unstructured climate and global weather data analysis and visualization
+  homepage: https://github.com/UXARRAY/uxarray
 
 extra:
   recipe-maintainers:
