@@ -20,11 +20,10 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14528&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/uxarray-feedstock?branchName=main">
-      </a>
+      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
     </td>
   </tr>
 </table>
@@ -157,7 +156,4 @@ Feedstock Maintainers
 * [@philipc2](https://github.com/philipc2/)
 * [@rajeeja](https://github.com/rajeeja/)
 * [@xylar](https://github.com/xylar/)
-
-
-<!-- dummy commit to enable rerendering -->
 
