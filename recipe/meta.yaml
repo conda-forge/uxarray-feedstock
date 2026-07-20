@@ -33,10 +33,10 @@ requirements:
     - healpix
     - holoviews
     - hvplot
-    - matplotlib-base
+    - matplotlib-base <3.11
     - matplotlib-inline
     - netcdf4
-    - numba
+    - numba >=0.63
     - numpy
     - pandas
     - python >={{ python_min }}
