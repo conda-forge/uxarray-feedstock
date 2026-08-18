@@ -47,31 +47,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `uxarray` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install uxarray
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install uxarray
 ```
 
-It is possible to list all of the versions of `uxarray` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add uxarray
+# for installing globally
+pixi global install uxarray
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `uxarray` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search uxarray --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search uxarray --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search uxarray --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -83,6 +125,8 @@ mamba repoquery whoneeds uxarray --channel conda-forge
 # List dependencies of `uxarray`:
 mamba repoquery depends uxarray --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -157,7 +201,4 @@ Feedstock Maintainers
 * [@philipc2](https://github.com/philipc2/)
 * [@rajeeja](https://github.com/rajeeja/)
 * [@xylar](https://github.com/xylar/)
-
-
-<!-- dummy commit to enable rerendering -->
 
