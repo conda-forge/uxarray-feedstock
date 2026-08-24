@@ -13,7 +13,7 @@ source:
   sha256: 20647ba12e8a7682fd88e90709de1764e142aac767a10d6562d09ce8e4fa4ec6
 
 build:
-  number: 0
+  number: 1
 
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
@@ -33,7 +33,7 @@ requirements:
     - healpix
     - holoviews
     - hvplot
-    - matplotlib-base
+    - matplotlib-base <3.11 # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341 
     - matplotlib-inline
     - netcdf4
     - numba
