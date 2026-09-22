@@ -15,7 +15,6 @@ Exodus and shapefile formats. This effort is a result of the collaboration betwe
 (NCAR and Pennsylvania State University) and the SEATS Project (Argonne National Laboratory, UC Davis, and Lawrence Livermore National Laboratory).
 The Uxarray team welcomes other community members to become part of this collaboration at any level of contribution.
 
-
 Current build status
 ====================
 
@@ -201,7 +200,4 @@ Feedstock Maintainers
 * [@philipc2](https://github.com/philipc2/)
 * [@rajeeja](https://github.com/rajeeja/)
 * [@xylar](https://github.com/xylar/)
-
-
-<!-- dummy commit to enable rerendering -->
 
