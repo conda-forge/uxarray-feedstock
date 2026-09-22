@@ -13,7 +13,7 @@ source:
   sha256: 19ab660538e768ea0ebc934eeee86fac19c85f66d57db6d258f1c912a130dce6
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
@@ -28,6 +28,7 @@ requirements:
     - cartopy
     - dask
     - datashader
+    - geopandas >=1.0  # 1.0 is the first release requiring pyogrio, the file-IO backend read_file needs
     - geoviews
     - healpix
     - holoviews
@@ -35,12 +36,15 @@ requirements:
     - matplotlib-base <3.11  # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341
     - matplotlib-inline
     - netcdf4
-    - numba
+    - numba >=0.63  # 0.63 is the first release supporting Python 3.14
     - numpy
     - pandas
+    - pyarrow
+    - pyproj
     - python >=${{ python_min }}
+    - requests
     - scikit-learn
-    - scipy >=0.16
+    - scipy
     - shapely
     - spatialpandas
     - xarray
