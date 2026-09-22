@@ -3,7 +3,6 @@ schema_version: 1
 context:
   name: uxarray
   version: "2026.09.0"
-  python_min: "3.11"
 
 package:
   name: uxarray
