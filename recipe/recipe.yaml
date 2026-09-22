@@ -1,26 +1,25 @@
-{% set name = "uxarray" %}
-{% set version = "2026.09.0" %}
-{% set python_min = "3.11" %}
+schema_version: 1
 
-
+context:
+  name: uxarray
+  version: "2026.09.0"
 
 package:
   name: uxarray
-  version: {{ version }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/UXARRAY/uxarray/archive/v{{ version }}.tar.gz   # For building from a specific tag's tarball
+  url: https://github.com/UXARRAY/uxarray/archive/v${{ version }}.tar.gz
   sha256: 19ab660538e768ea0ebc934eeee86fac19c85f66d57db6d258f1c912a130dce6
 
 build:
-  number: 0
-
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
   noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - setuptools
     - setuptools-scm
@@ -33,13 +32,13 @@ requirements:
     - healpix
     - holoviews
     - hvplot
-    - matplotlib-base <3.11 # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341 
+    - matplotlib-base <3.11  # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341
     - matplotlib-inline
     - netcdf4
     - numba
     - numpy
     - pandas
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - scikit-learn
     - scipy >=0.16
     - shapely
@@ -47,15 +46,16 @@ requirements:
     - xarray
     - polars
 
-test:
-  requires:
-    - pytest
-    - python {{ python_min }}
-  imports:
-    - uxarray
+tests:
+  - python:
+      imports:
+        - uxarray
+      pip_check: false
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
-  home: https://github.com/UXARRAY/uxarray
   description: |
     Uxarray aims to address the geoscience community need for tools that enable standard data analysis techniques to operate directly on unstructured grid data.
     Uxarray will provide Xarray styled functions to better read in and use unstructured grid datasets that follow standard conventions, including UGRID, SCRIP,
@@ -66,6 +66,7 @@ about:
   license: Apache-2.0
   license_file: LICENSE
   summary: Xarray extension for unstructured climate and global weather data analysis and visualization
+  homepage: https://github.com/UXARRAY/uxarray
 
 extra:
   recipe-maintainers:
