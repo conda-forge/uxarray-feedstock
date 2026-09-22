@@ -54,10 +54,6 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - "*"
-  - requirements:
-      run:
-        - pytest
-        - python ${{ python_min }}.*
 
 about:
   description: |
