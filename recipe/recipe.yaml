@@ -34,13 +34,19 @@ outputs:
         - setuptools-scm
       run:
         - antimeridian
-        - dask
+        # dask-core + pandas + pyarrow is the conda-forge equivalent of upstream's
+        # dask[dataframe].  The `dask` metapackage would additionally pull in
+        # distributed, bokeh, lz4, cytoolz and jinja2, none of which uxarray uses --
+        # it only ever imports dask.array.
+        - dask-core
         - netcdf4
         - numba >=0.63  # 0.63 is the first release supporting Python 3.14
         - numpy
         - pandas
         - polars
-        # in no extra upstream; also arrives via dask[dataframe]
+        # supplies what dask[dataframe] brings in on the pip side.  uxarray never
+        # imports pyarrow directly, which is why #1548 could drop the explicit entry
+        # once the rest of its dependency list was trimmed.
         - pyarrow
         - python >=${{ python_min }}
         - requests  # in no extra upstream
