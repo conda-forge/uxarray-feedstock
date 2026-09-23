@@ -35,8 +35,6 @@ outputs:
       run:
         - antimeridian
         - dask
-        # in no extra upstream; only pulls in traitlets, not matplotlib
-        - matplotlib-inline
         - netcdf4
         - numba >=0.63  # 0.63 is the first release supporting Python 3.14
         - numpy
@@ -105,6 +103,9 @@ outputs:
         - holoviews
         - hvplot
         - matplotlib-base <3.11  # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341
+        # in no extra upstream, but purely a viz concern: uxarray never imports it,
+        # it only inspects mpl.get_backend() in uxarray/plot/utils.py
+        - matplotlib-inline
     tests:
       - python:
           imports:
