@@ -40,7 +40,8 @@ outputs:
         # it only ever imports dask.array.
         - dask-core
         - netcdf4
-        - numba >=0.63  # 0.63 is the first release supporting Python 3.14
+        # 0.63 is the first release supporting Python 3.14
+        - numba >=0.63
         - numpy
         - pandas
         - polars
@@ -49,7 +50,8 @@ outputs:
         # once the rest of its dependency list was trimmed.
         - pyarrow
         - python >=${{ python_min }}
-        - requests  # in no extra upstream
+        # in no extra upstream
+        - requests
         - scikit-learn
         - scipy
         - shapely
@@ -108,7 +110,8 @@ outputs:
         - geoviews
         - holoviews
         - hvplot
-        - matplotlib-base <3.11  # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341
+        # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341
+        - matplotlib-base <3.11
         # in no extra upstream, but purely a viz concern: uxarray never imports it,
         # it only inspects mpl.get_backend() in uxarray/plot/utils.py
         - matplotlib-inline
