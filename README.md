@@ -201,6 +201,3 @@ Feedstock Maintainers
 * [@rajeeja](https://github.com/rajeeja/)
 * [@xylar](https://github.com/xylar/)
 
-
-<!-- dummy commit to enable rerendering -->
-

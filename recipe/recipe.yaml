@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: uxarray
-  version: "2026.09.0"
+  version: "2026.09.1"
 
 package:
   name: uxarray
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v${{ version }}.tar.gz
-  sha256: 19ab660538e768ea0ebc934eeee86fac19c85f66d57db6d258f1c912a130dce6
+  sha256: 9fee85c3cef11354685b0c4072341d4b6a48998016509a2064249c1e440219f6
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
