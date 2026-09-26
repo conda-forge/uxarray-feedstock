@@ -35,6 +35,8 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-uxarray-green.svg)](https://anaconda.org/conda-forge/uxarray) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/uxarray.svg)](https://anaconda.org/conda-forge/uxarray) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/uxarray.svg)](https://anaconda.org/conda-forge/uxarray) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/uxarray.svg)](https://anaconda.org/conda-forge/uxarray) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-uxarray--with--geo-green.svg)](https://anaconda.org/conda-forge/uxarray-with-geo) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/uxarray-with-geo.svg)](https://anaconda.org/conda-forge/uxarray-with-geo) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/uxarray-with-geo.svg)](https://anaconda.org/conda-forge/uxarray-with-geo) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/uxarray-with-geo.svg)](https://anaconda.org/conda-forge/uxarray-with-geo) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-uxarray--with--viz-green.svg)](https://anaconda.org/conda-forge/uxarray-with-viz) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/uxarray-with-viz.svg)](https://anaconda.org/conda-forge/uxarray-with-viz) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/uxarray-with-viz.svg)](https://anaconda.org/conda-forge/uxarray-with-viz) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/uxarray-with-viz.svg)](https://anaconda.org/conda-forge/uxarray-with-viz) |
 
 Installing uxarray
 ==================
@@ -53,7 +55,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install uxarray
+conda install uxarray uxarray-with-geo uxarray-with-viz
 ```
 
 </details>
@@ -62,7 +64,7 @@ conda install uxarray
 <summary>With mamba</summary>
 
 ```
-mamba install uxarray
+mamba install uxarray uxarray-with-geo uxarray-with-viz
 ```
 
 </details>
@@ -72,9 +74,9 @@ mamba install uxarray
 
 ```
 # for adding to your local project
-pixi add uxarray
+pixi add uxarray uxarray-with-geo uxarray-with-viz
 # for installing globally
-pixi global install uxarray
+pixi global install uxarray uxarray-with-geo uxarray-with-viz
 ```
 
 </details>

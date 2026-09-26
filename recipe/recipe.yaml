@@ -4,8 +4,8 @@ context:
   name: uxarray
   version: "2026.09.1"
 
-package:
-  name: uxarray
+recipe:
+  name: ${{ name }}-split
   version: ${{ version }}
 
 source:
@@ -13,51 +13,109 @@ source:
   sha256: 9fee85c3cef11354685b0c4072341d4b6a48998016509a2064249c1e440219f6
 
 build:
-  number: 0
-  noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  number: 1
 
-requirements:
-  host:
-    - python ${{ python_min }}.*
-    - pip
-    - setuptools
-    - setuptools-scm
-  run:
-    - antimeridian
-    - cartopy
-    - dask
-    - datashader
-    - geopandas >=1.0  # 1.0 is the first release requiring pyogrio, the file-IO backend read_file needs
-    - geoviews
-    - healpix
-    - holoviews
-    - hvplot
-    - matplotlib-base <3.11  # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341
-    - matplotlib-inline
-    - netcdf4
-    - numba >=0.63  # 0.63 is the first release supporting Python 3.14
-    - numpy
-    - pandas
-    - pyarrow
-    - pyproj
-    - python >=${{ python_min }}
-    - requests
-    - scikit-learn
-    - scipy
-    - shapely
-    - spatialpandas
-    - xarray
-    - polars
+outputs:
+  # The dependencies below mirror v${{ version }}'s pyproject.toml: `uxarray` carries
+  # [project.dependencies], and `uxarray-with-geo` and `uxarray-with-viz` add the `geo`
+  # and `viz` extras from [project.optional-dependencies] on top of it.
+  - package:
+      name: ${{ name }}
+    build:
+      noarch: python
+      script: ${{ PYTHON }} -m pip install . -vv
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - pip
+        - setuptools
+        - setuptools-scm
+      run:
+        - antimeridian
+        # dask-core + pandas + pyarrow is the conda-forge equivalent of upstream's
+        # dask[dataframe].  The `dask` metapackage would additionally pull in
+        # distributed, bokeh, lz4, cytoolz and jinja2, none of which uxarray uses --
+        # it only ever imports dask.array.
+        - dask-core
+        - netcdf4
+        # 0.63 is the first release supporting Python 3.14
+        - numba >=0.63
+        - numpy
+        - pandas
+        - polars
+        # supplies what dask[dataframe] brings in on the pip side; uxarray never
+        # imports pyarrow directly
+        - pyarrow
+        - python >=${{ python_min }}
+        - scikit-learn
+        - scipy
+        - shapely
+        - xarray
+    tests:
+      - python:
+          imports:
+            - uxarray
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
-tests:
-  - python:
-      imports:
-        - uxarray
-      pip_check: false
-      python_version:
-        - ${{ python_min }}.*
-        - "*"
+  - package:
+      name: ${{ name }}-with-geo
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - ${{ pin_subpackage(name, exact=True) }}
+        - python >=${{ python_min }}
+        # upstream `geo` extra
+        # cartopy is in both `geo` and `viz` because to_geodataframe() needs it too
+        - cartopy
+        # 1.0 is the first release requiring pyogrio, the file-IO backend read_file needs
+        - geopandas >=1.0
+        - healpix
+        - pyproj
+        - spatialpandas
+    tests:
+      - python:
+          imports:
+            - uxarray
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
+
+  - package:
+      name: ${{ name }}-with-viz
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - ${{ pin_subpackage(name, exact=True) }}
+        - python >=${{ python_min }}
+        # upstream `viz` extra
+        # cartopy 0.26.0 breaks some geoviews plots, see
+        # https://github.com/UXARRAY/uxarray/issues/1780
+        - cartopy <0.26
+        - datashader
+        - geoviews
+        - holoviews
+        - hvplot
+        # matplotlib 3.11.0 breaks some plots, see
+        # https://github.com/UXARRAY/uxarray/issues/1542
+        - matplotlib-base <3.11
+    tests:
+      - python:
+          imports:
+            - uxarray
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
 about:
   description: |
@@ -73,6 +131,7 @@ about:
   homepage: https://github.com/UXARRAY/uxarray
 
 extra:
+  feedstock-name: uxarray
   recipe-maintainers:
     - xylar
     - paullric
