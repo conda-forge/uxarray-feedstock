@@ -13,14 +13,12 @@ source:
   sha256: 9fee85c3cef11354685b0c4072341d4b6a48998016509a2064249c1e440219f6
 
 build:
-  number: 0
+  number: 1
 
 outputs:
-  # The dependencies below are exactly those required by v${{ version }}, partitioned
-  # the way upstream's `main` branch partitions them in [project.optional-dependencies]
-  # (see https://github.com/UXARRAY/uxarray/pull/1548).  `uxarray` carries the
-  # dependencies that are in no extra; `uxarray-with-geo` and `uxarray-with-viz` add
-  # the `geo` and `viz` extras on top of it.
+  # The dependencies below mirror v${{ version }}'s pyproject.toml: `uxarray` carries
+  # [project.dependencies], and `uxarray-with-geo` and `uxarray-with-viz` add the `geo`
+  # and `viz` extras from [project.optional-dependencies] on top of it.
   - package:
       name: ${{ name }}
     build:
@@ -45,13 +43,10 @@ outputs:
         - numpy
         - pandas
         - polars
-        # supplies what dask[dataframe] brings in on the pip side.  uxarray never
-        # imports pyarrow directly, which is why #1548 could drop the explicit entry
-        # once the rest of its dependency list was trimmed.
+        # supplies what dask[dataframe] brings in on the pip side; uxarray never
+        # imports pyarrow directly
         - pyarrow
         - python >=${{ python_min }}
-        # in no extra upstream
-        - requests
         - scikit-learn
         - scipy
         - shapely
@@ -60,9 +55,7 @@ outputs:
       - python:
           imports:
             - uxarray
-          # `pip check` fails here because v${{ version }} still declares the `geo` and
-          # `viz` dependencies as required in its wheel metadata
-          pip_check: false
+          pip_check: true
           python_version:
             - ${{ python_min }}.*
             - "*"
@@ -89,7 +82,7 @@ outputs:
       - python:
           imports:
             - uxarray
-          pip_check: false
+          pip_check: true
           python_version:
             - ${{ python_min }}.*
             - "*"
@@ -105,21 +98,21 @@ outputs:
         - ${{ pin_subpackage(name, exact=True) }}
         - python >=${{ python_min }}
         # upstream `viz` extra
-        - cartopy
+        # cartopy 0.26.0 breaks some geoviews plots, see
+        # https://github.com/UXARRAY/uxarray/issues/1780
+        - cartopy <0.26
         - datashader
         - geoviews
         - holoviews
         - hvplot
-        # due to https://github.com/UXARRAY/uxarray/issues/1542#issuecomment-4937460341
+        # matplotlib 3.11.0 breaks some plots, see
+        # https://github.com/UXARRAY/uxarray/issues/1542
         - matplotlib-base <3.11
-        # in no extra upstream, but purely a viz concern: uxarray never imports it,
-        # it only inspects mpl.get_backend() in uxarray/plot/utils.py
-        - matplotlib-inline
     tests:
       - python:
           imports:
             - uxarray
-          pip_check: false
+          pip_check: true
           python_version:
             - ${{ python_min }}.*
             - "*"
