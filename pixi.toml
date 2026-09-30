@@ -4,10 +4,10 @@
 "$schema" = "https://pixi.sh/v0.59.0/schema/manifest/schema.json"
 
 [workspace]
-name = "rename-uxarray-outputs-feedstock"
+name = "uxarray-feedstock"
 version = "2026.9.23"  # conda-smithy version used to generate this file
-description = "Pixi configuration for conda-forge/rename-uxarray-outputs-feedstock"
-authors = ["@conda-forge/rename-uxarray-outputs"]
+description = "Pixi configuration for conda-forge/uxarray-feedstock"
+authors = ["@conda-forge/uxarray"]
 channels = ["conda-forge"]
 platforms = ["linux-64", "osx-64", "win-64"]
 requires-pixi = ">=0.59.0"
@@ -36,16 +36,16 @@ cmd = "inspect_artifacts --all-packages"
 description = "List contents of all packages found in rattler-build build directory."
 [feature.build.tasks.build]
 cmd = "rattler-build build --recipe recipe"
-description = "Build rename-uxarray-outputs-feedstock directly (without setup scripts), no particular variant specified"
+description = "Build uxarray-feedstock directly (without setup scripts), no particular variant specified"
 [feature.build.tasks."build-linux_64_"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_.yaml "
-description = "Build rename-uxarray-outputs-feedstock with variant linux_64_ directly (without setup scripts)"
+description = "Build uxarray-feedstock with variant linux_64_ directly (without setup scripts)"
 [feature.build.tasks."debug-linux_64_"]
 cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_.yaml "
-description = "Debug rename-uxarray-outputs-feedstock with variant linux_64_ directly (without setup scripts)"
+description = "Debug uxarray-feedstock with variant linux_64_ directly (without setup scripts)"
 [feature.build.tasks."inspect-linux_64_"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_.yaml"
-description = "List contents of rename-uxarray-outputs-feedstock packages built for variant linux_64_"
+description = "List contents of uxarray-feedstock packages built for variant linux_64_"
 
 [environments]
 build = ["build"]
