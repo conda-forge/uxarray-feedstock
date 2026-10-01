@@ -13,14 +13,15 @@ source:
   sha256: 9fee85c3cef11354685b0c4072341d4b6a48998016509a2064249c1e440219f6
 
 build:
-  number: 1
+  number: 2
 
 outputs:
-  # The dependencies below mirror v${{ version }}'s pyproject.toml: `uxarray` carries
-  # [project.dependencies], and `uxarray-with-geo` and `uxarray-with-viz` add the `geo`
-  # and `viz` extras from [project.optional-dependencies] on top of it.
+  # The dependencies below mirror v${{ version }}'s pyproject.toml: `uxarray-base` carries
+  # [project.dependencies], `uxarray-with-geo` and `uxarray-with-viz` add the `geo` and
+  # `viz` extras from [project.optional-dependencies] on top of it, and `uxarray` pulls in
+  # both, like upstream's `all` extra minus the `dev` tools.
   - package:
-      name: ${{ name }}
+      name: ${{ name }}-base
     build:
       noarch: python
       script: ${{ PYTHON }} -m pip install . -vv
@@ -68,7 +69,7 @@ outputs:
       host:
         - python ${{ python_min }}.*
       run:
-        - ${{ pin_subpackage(name, exact=True) }}
+        - ${{ pin_subpackage(name ~ "-base", exact=True) }}
         - python >=${{ python_min }}
         # upstream `geo` extra
         # cartopy is in both `geo` and `viz` because to_geodataframe() needs it too
@@ -95,7 +96,7 @@ outputs:
       host:
         - python ${{ python_min }}.*
       run:
-        - ${{ pin_subpackage(name, exact=True) }}
+        - ${{ pin_subpackage(name ~ "-base", exact=True) }}
         - python >=${{ python_min }}
         # upstream `viz` extra
         # cartopy 0.26.0 breaks some geoviews plots, see
@@ -108,6 +109,26 @@ outputs:
         # matplotlib 3.11.0 breaks some plots, see
         # https://github.com/UXARRAY/uxarray/issues/1542
         - matplotlib-base <3.11
+    tests:
+      - python:
+          imports:
+            - uxarray
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
+
+  - package:
+      name: ${{ name }}
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - ${{ pin_subpackage(name ~ "-with-geo", exact=True) }}
+        - ${{ pin_subpackage(name ~ "-with-viz", exact=True) }}
+        - python >=${{ python_min }}
     tests:
       - python:
           imports:
