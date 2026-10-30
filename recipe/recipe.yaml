@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: uxarray
-  version: "2026.10.0"
+  version: "2026.10.1"
 
 recipe:
   name: ${{ name }}-split
@@ -10,7 +10,7 @@ recipe:
 
 source:
   url: https://github.com/UXARRAY/uxarray/archive/v${{ version }}.tar.gz
-  sha256: cd354508edde88ac440eb13b1e7d7f15e2bd82af0b3b4cbddc2d15b5377c34b2
+  sha256: b141b28addc8515277dc0a0b6018d44248c65136cb3f307ff4e0110409406076
 
 build:
   number: 0
@@ -99,16 +99,14 @@ outputs:
         - ${{ pin_subpackage(name ~ "-base", exact=True) }}
         - python >=${{ python_min }}
         # upstream `viz` extra
-        # cartopy 0.26.0 breaks some geoviews plots, see
-        # https://github.com/UXARRAY/uxarray/issues/1780
-        - cartopy <0.26
+        # cartopy 0.26 fixes plotting with matplotlib 3.11 (UXARRAY/uxarray#1542)
+        - cartopy >=0.26.0
         - datashader
-        - geoviews
+        # geoviews 1.16 fixes cartopy 0.26 compatibility (UXARRAY/uxarray#1780)
+        - geoviews >=1.16.0
         - holoviews
         - hvplot
-        # matplotlib 3.11.0 breaks some plots, see
-        # https://github.com/UXARRAY/uxarray/issues/1542
-        - matplotlib-base <3.11
+        - matplotlib-base >=3.8.4
     tests:
       - python:
           imports:
